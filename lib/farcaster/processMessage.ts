@@ -1,11 +1,12 @@
 import { Message, MessageType } from "@farcaster/hub-nodejs";
-import getValidEmbed from "../getValidEmbed";
-import getChannelIdFromCast from "../getChannelIdFromCast";
+import getValidEmbed from "@/lib/getValidEmbed";
+import getChannelIdFromCast from "@/lib/getChannelIdFromCast";
 import { toHex } from "viem";
-import getDate from "./getDate";
-import getUserDataByFid from "./getUserByFid";
-import getAlternativeEmbeds from "../getAlternativeEmbeds";
-import upsertCast from "../supabse/upsertCast";
+import getDate from "@/lib/farcaster/getDate";
+import getUserDataByFid from "@/lib/farcaster/getUserByFid";
+import getAlternativeEmbeds from "@/lib/getAlternativeEmbeds";
+import upsertCast from "@/lib/supabse/upsertCast";
+import botCast from "@/lib/farcaster/botCast";
 
 const processMessage = async (message: Message) => {
   const messageData = message.data;
@@ -47,6 +48,7 @@ const processMessage = async (message: Message) => {
     authorFid,
   };
   upsertCast(newCast);
+  botCast(newCast);
 };
 
 export default processMessage;
