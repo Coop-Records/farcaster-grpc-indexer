@@ -18,7 +18,7 @@ bun start
 
 Sonatabot adds a comment to all the casts that are indexed.
 
-It uses an `ED25199` signer from the bot farcaster account to sign messages.
+It uses an `ED25519` signer from the bot farcaster account to sign messages.
 
 ### Generate Signer Private Key
 
