@@ -47,8 +47,8 @@ const processMessage = async (message: Message) => {
     alternativeEmbeds,
     authorFid,
   };
-  upsertCast(newCast);
-  botCast(newCast);
+  await upsertCast(newCast);
+  await botCast(newCast);
 };
 
 export default processMessage;
